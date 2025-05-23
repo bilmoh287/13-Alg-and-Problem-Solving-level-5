@@ -104,7 +104,7 @@ public:
 			Current->next = new_nod;
 			new_nod->prev = Current;
 		}
-		_Size;
+		_Size++;
 	}
 
 	void DeleteNode(Node* & NodeToDelete)
@@ -227,20 +227,25 @@ public:
 			{
 				break;
 			}
-			counter++;
 			current = current->next;
+			counter++;
+
 		}
 		return current;
 	}
 
-	int GetItem(int index)
+	T GetItem(int index)
 	{
 		Node* item = GetNode(index);
-		if (item != NULL)
-			return item->value;
-		else
-			return NULL;
-
+		//if (item == NULL)
+		//{
+		//	return NULL;
+		//}
+		//else
+		//{
+		//	return item->value;
+		//}
+		return item ? item->value : NULL;
 	}
 
 	bool UpdateItem(int index, T NewValue)

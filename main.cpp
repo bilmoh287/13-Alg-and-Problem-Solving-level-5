@@ -8,23 +8,24 @@ using namespace std;
 int main() {
     clsMyQueue <int> MyQueue;
 
-    MyQueue.Push(10);
-    MyQueue.Push(20);
-    MyQueue.Push(30);
-    MyQueue.Push(40);
-    MyQueue.Push(50);
+    MyQueue.push(10);
+    MyQueue.push(20);
+    MyQueue.push(30);
+    MyQueue.push(40);
+    MyQueue.push(50);
 
     cout << "\nQueue:\n";
     MyQueue.Print();
 
     cout << "\nQueue Size: " << MyQueue.Size();
-    cout << "\nQueue Front: " << MyQueue.Front();
-    cout << "\nQueue Back: " << MyQueue.Back();
+    cout << "\nQueue Front: " << MyQueue.front();
+    cout << "\nQueue Back: " << MyQueue.back();
 
-    MyQueue.Pop();
+    MyQueue.pop();
 
-    cout << "\n\nQueue after Pop:\n";
+    cout << "\n\nQueue after pop:\n";
     MyQueue.Print();
+    cout << "\n" << MyQueue.IsEmpty();
 
     system("pause>0");
 
