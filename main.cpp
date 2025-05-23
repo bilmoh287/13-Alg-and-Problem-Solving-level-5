@@ -26,14 +26,35 @@ int main() {
 
     cout << "Node size = " << MydblLinkedList.Size();
 
+    MydblLinkedList.Clear();
+    cout << "\nLinked List Contenet after Clearing:\n";
+    MydblLinkedList.PrintList();
 
+    cout << "Node size = " << MydblLinkedList.Size();
     if (MydblLinkedList.IsEmpty())
     {
         cout << "\nYes Node is Empty\n";
     }
     else {
-        cout << "\n\nNo Node is NOT Empty\n";
+        cout << "\nNo Node is NOT Empty\n";
     }
+
+    MydblLinkedList.InsertAtBeginning(1);
+
+    cout << "\nLinked List Contenet after inserting new node:\n";
+    MydblLinkedList.PrintList();
+
+    cout << "Node size = " << MydblLinkedList.Size();
+    if (MydblLinkedList.IsEmpty())
+    {
+        cout << "\nYes Node is Empty\n";
+    }
+    else {
+        cout << "\nNo Node is NOT Empty\n";
+    }
+
+
+
 
     system("pause>0");
 

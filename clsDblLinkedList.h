@@ -183,5 +183,11 @@ public:
 	{
 		return (_Size == 0);
 	}
+
+	void Clear()
+	{
+		head = NULL;
+		_Size = 0;
+	}
 };
 
