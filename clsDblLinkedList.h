@@ -232,5 +232,15 @@ public:
 		}
 		return current;
 	}
+
+	int GetItem(int index)
+	{
+		Node* item = GetNode(index);
+		if (item != NULL)
+			return item->value;
+		else
+			return NULL;
+
+	}
 };
 

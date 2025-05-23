@@ -18,8 +18,8 @@ int main() {
 
     clsDblLinkedList <int> ::Node* N1;
 
-    N1 = MydblLinkedList.GetNode(4);
-    cout << "N1 value is = " << N1->value;
+    //N1 = MydblLinkedList.GetNode(4);
+    cout << "N1 (item) value is = " << MydblLinkedList.GetItem(2);
     //MydblLinkedList.PrintList();
 
 
