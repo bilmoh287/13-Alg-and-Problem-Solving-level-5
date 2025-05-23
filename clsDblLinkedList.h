@@ -186,8 +186,10 @@ public:
 
 	void Clear()
 	{
-		head = NULL;
-		_Size = 0;
+		while (_Size != 0)
+		{
+			DeleteFirstNode();
+		}
 	}
 };
 
