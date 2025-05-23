@@ -210,5 +210,27 @@ public:
 			head = temp->prev;
 		}
 	}
+
+	Node* GetNode(int index)
+	{
+		int counter = 0;
+
+		if (index > _Size - 1 || index < 0)
+		{
+			return NULL;
+		}
+
+		Node* current = head;
+		while (current != NULL && current->next != NULL)
+		{
+			if (counter == index)
+			{
+				break;
+			}
+			counter++;
+			current = current->next;
+		}
+		return current;
+	}
 };
 

@@ -7,14 +7,6 @@ using namespace std;
 int main() {
     clsDblLinkedList <int> MydblLinkedList;
 
-    if (MydblLinkedList.IsEmpty())
-    {
-        cout << "Yes Node is Empty\n";
-    }
-    else {
-        cout << "\nNo Node is NOT Empty\n";
-    }
-
     MydblLinkedList.InsertAtBeginning(5);
     MydblLinkedList.InsertAtBeginning(4);
     MydblLinkedList.InsertAtBeginning(3);
@@ -24,11 +16,11 @@ int main() {
     cout << "\nLinked List Contenet:\n";
     MydblLinkedList.PrintList();
 
-    MydblLinkedList.Reverese();
-    cout << "\nLinked List Contenet after Reverse:\n";
-    MydblLinkedList.PrintList();
+    clsDblLinkedList <int> ::Node* N1;
 
-
+    N1 = MydblLinkedList.GetNode(4);
+    cout << "N1 value is = " << N1->value;
+    //MydblLinkedList.PrintList();
 
 
     system("pause>0");
