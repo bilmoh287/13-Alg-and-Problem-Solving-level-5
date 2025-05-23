@@ -165,5 +165,17 @@ public:
 		Current->next = NULL;
 		delete temp;
 	}
+
+	int Size()
+	{
+		int counter = 0;
+		Node* Current = head;
+		while (Current != NULL)
+		{
+			counter++;
+			Current = Current->next;
+		}
+		return counter;
+	}
 };
 
