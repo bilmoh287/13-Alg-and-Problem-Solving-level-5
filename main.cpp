@@ -16,8 +16,8 @@ int main() {
     cout << "\nLinked List Contenet:\n";
     MydblLinkedList.PrintList();
 
-    MydblLinkedList.UpdateItem(2, 500);
-    cout << "\nafter updating item(2):\n";
+    MydblLinkedList.InsertAfter(2, 500);
+    cout << "\nafter updating inserting using index:\n";
     MydblLinkedList.PrintList();
 
 

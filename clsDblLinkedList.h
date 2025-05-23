@@ -256,5 +256,17 @@ public:
 			return false;
 		}
 	}
+
+	bool InsertAfter(int index, T value)
+	{
+		Node* ItemNode = GetNode(index);
+		if (ItemNode != NULL)
+		{
+			InsertAfter(ItemNode, value);
+		}
+		else 
+			return false;
+		
+	}
 };
 
