@@ -11,6 +11,7 @@ class clsMyQueue
 {
 
 protected:
+	//OOP Object Composition concept.
 	clsDblLinkedList <T> _MyList;
 
 public:
