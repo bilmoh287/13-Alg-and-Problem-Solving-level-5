@@ -9,6 +9,7 @@ class clsDynamicArray
 {
 protected:
 	int _Size = 0;
+	T* _TempArray;
 public:
 	T* OriginalArray;
 
@@ -58,6 +59,60 @@ public:
 		cout << "\n";
 
 	}
+
+	//bool Resize(int Size)
+	//{
+	//	if (Size < 0)
+	//	{
+	//		return false;
+	//	}
+	//	else
+	//	{
+	//		T* tempArray;
+
+	//		tempArray = new T[Size];
+	//		for (int i = 0; i < Size; i++)
+	//		{
+	//			if (i <= _Size)
+	//			{
+	//				tempArray[i] = OriginalArray[i];
+	//			}
+	//		}
+
+	//		_Size = Size;
+	//		delete[] OriginalArray;
+	//		OriginalArray = tempArray;
+	//		return true;
+	//	}
+	//}
+
+	void Resize(int NewSize)
+	{
+		if (NewSize < 0)
+		{
+			NewSize = 0;
+		}
+
+		if (NewSize < _Size)
+		{
+			_Size = NewSize;
+		}
+
+		_TempArray = new T[NewSize];
+
+		for (int i = 0; i < _Size; i++)
+		{
+			_TempArray[i] = OriginalArray[i];
+		}
+
+		_Size = NewSize;
+
+		delete[] OriginalArray;
+		OriginalArray = _TempArray;
+
+	}
+
+
 
 };
 
