@@ -50,7 +50,7 @@ public:
 		return _Size;
 	}
 
-	void Print()
+	void PrintList()
 	{
 		for (int i = 0; i < _Size; i++)
 		{
@@ -186,6 +186,30 @@ public:
 	void DeleteLastItem() 
 	{
 		DeleteItemAt(_Size - 1);
+	}
+
+	int Find(T value)
+	{
+		for (int i = 0; i < _Size; i++)
+		{
+			if (OriginalArray[i] == value)
+				return i;
+		}
+		return -1;
+	}
+
+	void DeleteItem(T value)
+	{
+		//int index = Find(value);
+		//if (index == -1)
+		//{
+		//	return false;
+		//}
+
+		//DeleteItemAt(index);
+		//return true;
+
+		DeleteItemAt(Find(value));
 	}
 
 };

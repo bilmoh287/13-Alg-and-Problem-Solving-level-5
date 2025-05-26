@@ -5,35 +5,32 @@ using namespace std;
 
 int main()
 {
-    clsDynamicArray<int> MyDynaimcArray(5);
 
-    cout << MyDynaimcArray.Size();
+    clsDynamicArray <int> MyDynamicArray(5);
 
-    MyDynaimcArray.SetItem(0, 10);
-    MyDynaimcArray.SetItem(1, 20);
-    MyDynaimcArray.SetItem(2, 30);
-    MyDynaimcArray.SetItem(3, 40);
-    MyDynaimcArray.SetItem(4, 50);
+    MyDynamicArray.SetItem(0, 10);
+    MyDynamicArray.SetItem(1, 20);
+    MyDynamicArray.SetItem(2, 30);
+    MyDynamicArray.SetItem(3, 40);
+    MyDynamicArray.SetItem(4, 50);
 
-    cout << "\nIs Empty: " << MyDynaimcArray.IsEmpty();
-    cout << "\nDynamic Array Size: " << MyDynaimcArray.Size();
-    cout << "\n\nArray Items: \n";
-    MyDynaimcArray.Print();
+    cout << "\nIs Empty?  " << MyDynamicArray.IsEmpty();
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items: \n";
 
-    //cout << "\nget item at index 2: " << MyDynaimcArray.GetItem(1);
+    MyDynamicArray.PrintList();
 
+    int Index = MyDynamicArray.Find(99);
+    if (Index == -1)
+        cout << "\nItem was not Found :-(\n ";
+    else
+        cout << "\n30 is found at index : " << Index;
 
-    MyDynaimcArray.DeleteFirstItem();
-    cout << "\n\nArray after Deleting First item";
-    cout << "\nDyanaminArray Size: " << MyDynaimcArray.Size() << endl;
-    MyDynaimcArray.Print();
+    MyDynamicArray.DeleteItem(99);
+    cout << "\n\nArray Items after deleting 30:";
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    MyDynamicArray.PrintList();
 
-    cout << "\nIs Empty: " << MyDynaimcArray.IsEmpty();
-
-    MyDynaimcArray.DeleteLastItem();
-    cout << "\n\nArray after Deleting Last item";
-    cout << "\nDynamic Array Size: " << MyDynaimcArray.Size() << endl;
-    MyDynaimcArray.Print();
 
     system("pause>0");
 
