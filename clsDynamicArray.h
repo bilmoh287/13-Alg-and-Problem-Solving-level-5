@@ -112,6 +112,39 @@ public:
 
 	}
 
+	T GetItem(int index)
+	{
+		if (index >= _Size || index < 0)
+		{
+			return T(); // Return default value (0 for int, nullptr for pointers, etc.)
+		}
+		return OriginalArray[index];
+	}
+
+	void Reverse()
+	{
+		if (_Size <= 1)
+		{
+			return;
+		}
+
+		_TempArray = new T[_Size];
+		for (int i = 0; i < _Size; i++)
+		{
+			_TempArray[i] = OriginalArray[_Size - 1 - i];
+		}
+
+		delete[] OriginalArray;
+		OriginalArray = _TempArray;
+	}
+
+	void Clear()
+	{
+		_Size = 0;
+		_TempArray = new T[0];
+		delete[] OriginalArray;
+		OriginalArray = _TempArray;
+	}
 
 
 };
