@@ -9,12 +9,11 @@ int main()
 
     cout << MyDynaimcArray.Size();
 
-    MyDynaimcArray.SetItem(0, 1);
-    MyDynaimcArray.SetItem(1, 10);
-    MyDynaimcArray.SetItem(2, 20);
-    MyDynaimcArray.SetItem(3, 30);
-    MyDynaimcArray.SetItem(4, 40);
-    MyDynaimcArray.SetItem(5, 50);
+    MyDynaimcArray.SetItem(0, 10);
+    MyDynaimcArray.SetItem(1, 20);
+    MyDynaimcArray.SetItem(2, 30);
+    MyDynaimcArray.SetItem(3, 40);
+    MyDynaimcArray.SetItem(4, 50);
 
     cout << "\nIs Empty: " << MyDynaimcArray.IsEmpty();
     cout << "\nDyanaminArray Size: " << MyDynaimcArray.Size();
@@ -27,8 +26,9 @@ int main()
     cout << "\n\nArray after Reversing\n";
     MyDynaimcArray.Print();
 
-    MyDynaimcArray.Clear();
+    MyDynaimcArray.DeleteItem(0);
     cout << "\n\nArray after clearing\n";
+    cout << "\nDyanaminArray Size: " << MyDynaimcArray.Size() << endl;
     MyDynaimcArray.Print();
 
     system("pause>0");

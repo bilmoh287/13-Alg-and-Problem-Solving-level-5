@@ -30,7 +30,7 @@ public:
 
 	bool SetItem(int index, T value)
 	{
-		if (index > _Size || index < 0)
+		if (index >= _Size || index < 0)
 		{
 			return false;
 		}
@@ -142,6 +142,31 @@ public:
 	{
 		_Size = 0;
 		_TempArray = new T[0];
+		delete[] OriginalArray;
+
+		OriginalArray = _TempArray;
+	}
+
+	void DeleteItem(int index)
+	{
+		if (index >= _Size || index < 0)
+		{
+			return;
+		}
+
+		if(_Size == 0)
+		{
+			Clear();
+		}
+
+		_TempArray = new T[_Size];
+		_TempArray = OriginalArray;
+		for (int i = index; i <_Size-1; i++)
+		{
+			_TempArray[i] = OriginalArray[i + 1];
+		}
+
+		_Size--;
 		delete[] OriginalArray;
 		OriginalArray = _TempArray;
 	}
