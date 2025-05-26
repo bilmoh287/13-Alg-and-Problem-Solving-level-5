@@ -162,7 +162,7 @@ public:
 
 		_TempArray = new T[_Size];
 
-		for (int i = 0; i < index; ++i)
+		for (int i = 0; i < _Size; ++i)
 		{
 			_TempArray[i] = OriginalArray[i];
 		}
@@ -194,6 +194,7 @@ public:
 		{
 			if (OriginalArray[i] == value)
 				return i;
+		
 		}
 		return -1;
 	}
@@ -210,6 +211,32 @@ public:
 		//return true;
 
 		DeleteItemAt(Find(value));
+	}
+
+	void InserAt(int index, T value)
+	{
+		if (index >= _Size || index < 0)
+		{
+			return;
+		}
+
+		_Size++;
+		_TempArray = new T[_Size];
+
+		for (int i = 0; i < _Size; ++i)
+		{
+			if (i == index)
+			{
+				_TempArray[i] = value;
+				i++;
+			}
+			_TempArray[i] = OriginalArray[i];
+
+		}
+
+		delete[] OriginalArray;
+		OriginalArray = _TempArray;
+
 	}
 
 };
