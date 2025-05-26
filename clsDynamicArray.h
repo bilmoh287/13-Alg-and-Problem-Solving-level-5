@@ -213,31 +213,61 @@ public:
 		DeleteItemAt(Find(value));
 	}
 
-	void InserAt(int index, T value)
+	bool InsertAt(int index, T value)
 	{
-		if (index >= _Size || index < 0)
+		if (index > _Size || index < 0)
 		{
-			return;
+			return false;
 		}
 
 		_Size++;
 		_TempArray = new T[_Size];
 
-		for (int i = 0; i < _Size; ++i)
+		for (int i = 0; i < index; i++)
 		{
-			if (i == index)
-			{
-				_TempArray[i] = value;
-				i++;
-			}
 			_TempArray[i] = OriginalArray[i];
+
+		}
+
+		_TempArray[index] = value;
+
+		for (int i = index; i <= _Size; i++)
+		{
+			_TempArray[i + 1] = OriginalArray[i];
 
 		}
 
 		delete[] OriginalArray;
 		OriginalArray = _TempArray;
+		return true;
 
 	}
 
+
+	void InsertAtBeginning(T value)
+	{
+		InsertAt(0, value);
+	}
+
+	bool InsertAfter(int index, T value)
+	{
+		if (index >= _Size)
+			return InsertAt(_Size - 1, value);
+		else
+			return InsertAt(index + 1, value);
+	}
+
+	bool InsertBefore(int index, T value)
+	{
+		if (index < 1)
+			return InsertAt(0, value);
+		else
+			return InsertAt(index-1, value);
+	}
+
+	bool InsertAtEnd(T value)
+	{
+		return InsertAt(_Size, value);
+	}
 };
 
