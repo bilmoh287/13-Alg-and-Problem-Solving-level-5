@@ -147,20 +147,26 @@ public:
 		OriginalArray = _TempArray;
 	}
 
-	void DeleteItem(int index)
+	bool DeleteItemAt(int index)
 	{
 		if (index >= _Size || index < 0)
 		{
-			return;
+			return false;
 		}
 
-		if(_Size == 0)
+		if(_Size == 1)
 		{
 			Clear();
+			return true;
 		}
 
 		_TempArray = new T[_Size];
-		_TempArray = OriginalArray;
+
+		for (int i = 0; i < index; ++i)
+		{
+			_TempArray[i] = OriginalArray[i];
+		}
+
 		for (int i = index; i <_Size-1; i++)
 		{
 			_TempArray[i] = OriginalArray[i + 1];
@@ -169,8 +175,18 @@ public:
 		_Size--;
 		delete[] OriginalArray;
 		OriginalArray = _TempArray;
+		return true;
 	}
 
+	void DeleteFirstItem()
+	{
+		DeleteItemAt(0);
+	}
+
+	void DeleteLastItem() 
+	{
+		DeleteItemAt(_Size - 1);
+	}
 
 };
 
