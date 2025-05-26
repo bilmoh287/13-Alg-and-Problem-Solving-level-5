@@ -1,7 +1,6 @@
 #pragma once
 
 #include<iostream>
-#include "clsDblLinkedList.h"
 using namespace std;
 
 template <class T>
@@ -13,7 +12,7 @@ protected:
 public:
 	T* OriginalArray;
 
-	clsDynamicArray(int Size)
+	clsDynamicArray(int Size = 0)
 	{
 		if (Size < 0)
 		{
