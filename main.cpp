@@ -1,68 +1,56 @@
+//ProgrammingAdvices.com
+//Mohammed Abu-Hadhoud
+
 #include <iostream>
-#include "clsMyString.h"
+#include "clsQueueLine.h"
 
 using namespace std;
 
 int main()
 {
 
-    cout << "\n\n\t\t\t\t\t\t Undo/Redo Project\n\n";
-
-    clsMyString S1;
-
-    cout << "\nS1  = " << S1.Value << "\n";
-
-    S1.Value = "Mohammed";
-
-    cout << "S1  = " << S1.Value << "\n";
-
-    S1.Value = "Mohammed2";
-
-    cout << "S1  = " << S1.Value << "\n";
-
-    S1.Value = "Mohammed3";
-
-    cout << "S1  = " << S1.Value << "\n";
-
-    cout << "\n\nUndo: ";
-    cout << "\n__________\n";
-
-    S1.Undo();
-    cout << "\nS1  after undo = " << S1.Value << "\n";
-
-    S1.Undo();
-    cout << "S1  after undo = " << S1.Value << "\n";
-
-    S1.Undo();
-    cout << "S1  after undo = " << S1.Value << "\n";
-
-    cout << "\n\nRedo: ";
-    cout << "\n__________\n";
-
-    S1.Redo();
-    cout << "\nS1  after Redo = " << S1.Value << "\n";
-
-    S1.Redo();
-    cout << "S1  after Redo = " << S1.Value << "\n";
-
-    S1.Redo();
-    cout << "S1  after Redo = " << S1.Value << "\n";
+    clsQueueLine PayBillsQueue("A0", 10);
+    clsQueueLine SubscriptionsQueue("B0", 5);
 
 
-    cout << "\n" << S1.Value;
-    cout << "\n\nUndo: ";
-    cout << "\n__________\n";
+    PayBillsQueue.IssueTicket();
+    PayBillsQueue.IssueTicket();
+    PayBillsQueue.IssueTicket();
+    PayBillsQueue.IssueTicket();
+    PayBillsQueue.IssueTicket();
 
-    S1.Undo();
-    cout << "\nS1  after undo = " << S1.Value << "\n";
+    cout << "\nPay Bills Queue Info:\n";
+    PayBillsQueue.PrintInfo();
 
-    S1.Undo();
-    cout << "S1  after undo = " << S1.Value << "\n";
+    PayBillsQueue.PrintTicketsLineRTL();
+    PayBillsQueue.PrintTicketsLineLTR();
 
-    S1.Undo();
-    cout << "S1  after undo = " << S1.Value << "\n";
 
-    system("pause>0");
+
+    PayBillsQueue.PrintAllTickets();
+
+    PayBillsQueue.ServeNextClient();
+    cout << "\nPay Bills Queue After Serving One client\n";
+    PayBillsQueue.PrintInfo();
+
+    cout << "\nSubscriptions Queue Info:\n";
+
+    SubscriptionsQueue.IssueTicket();
+    SubscriptionsQueue.IssueTicket();
+    SubscriptionsQueue.IssueTicket();
+
+
+    SubscriptionsQueue.PrintInfo();
+
+    SubscriptionsQueue.PrintTicketsLineRTL();
+    SubscriptionsQueue.PrintTicketsLineLTR();
+
+    SubscriptionsQueue.PrintAllTickets();
+
+    SubscriptionsQueue.ServeNextClient();
+    cout << "\nSubscriptions Queue After Serving One client\n";
+    SubscriptionsQueue.PrintInfo();
+
 
     return 0;
 }
